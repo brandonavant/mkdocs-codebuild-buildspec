@@ -3,8 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-    - echo Pre Build
-    - echo installing pip
+    - echo Installing pip
     - wget https://bootstrap.pypa.io/get-pip.py
     - python --version
     - python get-pip.py --user
@@ -13,8 +12,8 @@ phases:
     commands:
     - echo Building MkDocs Site
     - python -m mkdocs build
-    - aws s3 sync ./site s3://devassocmkdocssite
+    - aws s3 sync ./site s3://path/subdirectory
   post_build:
     commands:
-    - echo Done!
+    - echo MkDocs Site Deployed Successfully!
 
